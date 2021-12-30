@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   username: string = "";
   password: string = "";
+  registered = false;
 
   ngOnInit(): void {
   }
@@ -22,6 +23,16 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.username && this.password) {
       this.authService.login(this.username, this.password).pipe(catchError(err => of(null))).subscribe(() => {});
+    }
+  }
+
+  register() {
+    if (this.username && this.password) {
+      this.authService.register(this.username, this.password).pipe(catchError(err => of(null))).subscribe(res => {
+        if (res) {
+          this.registered = true;
+        }
+      });
     }
   }
 

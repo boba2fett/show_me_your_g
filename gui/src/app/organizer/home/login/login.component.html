@@ -6,4 +6,5 @@
     <mat-label>Password</mat-label>
     <input matInput [(ngModel)]="password" type="password" (keyup.enter)="login()" required>
 </mat-form-field>
-<button mat-raised-button color="primary" (click)="login()" [disabled]="isValid()">Login</button>
+<button mat-raised-button color="primary" (click)="login()" [disabled]="isValid()" class="button">Login</button>
+<button mat-raised-button color="primary" (click)="register()" [disabled]="isValid() || registered" class="button">Register</button>
